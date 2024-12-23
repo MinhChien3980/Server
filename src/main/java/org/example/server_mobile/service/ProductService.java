@@ -31,7 +31,7 @@ public class ProductService {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    public void delete(String id) {
+    public void delete(Long id) {
         productRepo.deleteById(id);
     }
 

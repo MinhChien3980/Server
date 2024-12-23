@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 @Repository
-public interface RoleRepo extends JpaRepository<Role, Long> {
+public interface RoleRepo extends JpaRepository<Role, String> {
 
     List<Role> findAllByNameIn(Set<String> roleNames);
 

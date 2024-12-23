@@ -1,5 +1,4 @@
 package org.example.server_mobile.entity;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,20 +12,16 @@ import lombok.experimental.FieldDefaults;
 @Builder
 @Entity
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
-public class OrderItem {
+public class Address{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    String address;
+    String city;
+    String state;
+    String country;
+    String zip;
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    Order order;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    Product product;
-
-    @ManyToOne
-    @JoinColumn(name = "product_variant_id")
-    ProductVariant productVariant;
-
+    @JoinColumn(name = "user_id")
+    User user;
 }

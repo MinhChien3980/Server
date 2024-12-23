@@ -14,7 +14,7 @@ public class ProductMediaService {
     ProductMediaRepo productMediaRepo;
 
     public void deleteProductMedia(Long id) {
-        productMediaRepo.deleteById(String.valueOf(id));
+        productMediaRepo.deleteById(id);
     }
 
     public void deleteProductMediaByProductId(Long id) {

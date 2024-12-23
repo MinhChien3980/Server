@@ -26,12 +26,9 @@ public class ProductVariant {
     @JoinColumn(name = "size_id")
     Size size;
     @OneToMany(mappedBy = "productVariant")
-    List<OrderItem> orderItem;
-    @OneToMany(mappedBy = "productVariant")
     List<CartItem> cartItems;
     String color;
     String sku;
     Double price;
     Double stock;
-
 }

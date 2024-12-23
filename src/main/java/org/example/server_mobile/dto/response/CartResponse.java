@@ -8,22 +8,21 @@ import lombok.experimental.FieldDefaults;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import org.example.server_mobile.entity.Product;
-import org.example.server_mobile.entity.ProductVariant;
+import java.util.List;
+
+import org.example.server_mobile.entity.CartItem;
+import org.example.server_mobile.entity.CartPrice;
+import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.Address;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
-public class CartItemResponse {
+public class CartResponse {
     Long id;
-    Product product;
-    String productName;
-    ProductVariant productVariant;
-    Integer quantity;
-    int grandTotal;
-    int discount;
-    int productPrice;
+    List<CartItemResponse> cartItems;
+    Address address;
+    CartPrice cartPrice;
     String errorMessage;
 }

@@ -24,14 +24,14 @@ public class ProductVariantService {
     }
 
 //    public ProductVariantResponse updateProductVariant(Long id, ProductVariantRequest request) {
-//        ProductVariant productVariant = productVariantRepo.findById(String.valueOf(id)).orElseThrow();
+//        ProductVariant productVariant = productVariantRepo.findById(id).orElseThrow();
 //        productVariantMapper.updateProductVariant(request, productVariant);
 //        productVariant = productVariantRepo.save(productVariant);
 //        return productVariantMapper.toProductVariantResponse(productVariant);
 //    }
 
     public void deleteProductVariant(Long id) {
-        productVariantRepo.deleteById(String.valueOf(id));
+        productVariantRepo.deleteById(id);
     }
 
 }

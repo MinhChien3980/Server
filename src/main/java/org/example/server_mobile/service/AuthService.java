@@ -165,7 +165,7 @@ public class AuthService {
 
         if (!(verified && expiryTime.after(new Date()))) throw new AppException(ErrorCode.UNAUTHENTICATED);
 
-        if (invalidatedTokenRepository.existsById(signedJWT.getJWTClaimsSet().getJWTID()))
+        if (invalidatedTokenRepository.existsById(Long.valueOf(signedJWT.getJWTClaimsSet().getJWTID())))
             throw new AppException(ErrorCode.UNAUTHENTICATED);
 
         return signedJWT;

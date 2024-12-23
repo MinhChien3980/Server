@@ -65,7 +65,7 @@ public class UserService {
     }
 
     @PostAuthorize("returnObject.email == authentication.name")
-    public UserResponse getUserById(String id) {
+    public UserResponse getUserById(Long id) {
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -74,8 +74,8 @@ public class UserService {
         return userMapper.toUserResponse(user);
     }
 
-    @PostAuthorize("returnObject.email == authentication.name")
-    public UserResponse updateUser(String id, UserCreationRequest user) {
+    @PostAuthorize("return Object.email == authentication.name")
+    public UserResponse updateUser(Long id, UserCreationRequest user) {
         log.info("Updating user with id: {}", id);
         User existingUser = userRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -97,7 +97,7 @@ public class UserService {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    public void deleteUser(String id) {
+    public void deleteUser(Long id) {
         userRepo.deleteById(id);
     }
 

@@ -5,11 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.example.server_mobile.entity.AgeGroup;
-import org.example.server_mobile.entity.Gender;
-import org.example.server_mobile.entity.Size;
-import java.util.List;
-
 import static lombok.AccessLevel.PRIVATE;
 
 @Data
@@ -17,13 +12,13 @@ import static lombok.AccessLevel.PRIVATE;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
-public class ProductVariantResponse {
+public class AddressResponse {
+
     String id;
-    String name;
-    String color;
-    String sku;
-    Double price;
-    Double stock;
-    String created_at;
-    String updated_at;
+    String address;
+    String city;
+    String state;
+    String country;
+    String zip;
+
 }

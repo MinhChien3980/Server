@@ -26,7 +26,16 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "discount_id")
     Discount discount;
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<OrderItem> orderItems;
-
+    @JoinColumn(name = "cart_id")
+    Cart cart;
+    @Column(name = "order_status")
+    String status;
+    @Column(name = "total_price")
+    Double totalPrice;
+    @Column(name = "total_discount")
+    Double totalDiscount;
+    @Column(name = "grand_total")
+    Double grandTotal;
+    @JoinColumn(name = "address_id")
+    Address address;
 }

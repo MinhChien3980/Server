@@ -28,5 +28,8 @@ public class CartItem {
     @ManyToOne
     @JoinColumn(name = "product_variant_id")
     ProductVariant productVariant;
-
+    int quantity;
+    int grandTotal;
+    int discount;
+    int productPrice;
 }

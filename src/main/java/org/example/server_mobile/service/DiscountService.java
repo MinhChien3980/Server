@@ -26,14 +26,14 @@ public class DiscountService {
     }
 
     public DiscountResponse getDiscountById(Long id) {
-        Discount discount = discountRepo.findById(String.valueOf(id)).orElseThrow();
+        Discount discount = discountRepo.findById(id).orElseThrow();
         return discountMapper.toDiscountResponse(discount);
     }
     public void deleteDiscount(Long id) {
-        discountRepo.deleteById(String.valueOf(id));
+        discountRepo.deleteById(id);
     }
     public DiscountResponse updateDiscount(Long id, DiscountRequest request) {
-        Discount discount = discountRepo.findById(String.valueOf(id)).orElseThrow();
+        Discount discount = discountRepo.findById(id).orElseThrow();
         discount = discountMapper.toDiscount(request);
         discount = discountRepo.save(discount);
         return discountMapper.toDiscountResponse(discount);

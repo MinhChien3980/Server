@@ -24,4 +24,21 @@ public class Cart {
     User user;
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
     List<CartItem> cartItems;
+    @OneToOne(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    Address address;
+
+    public CartPrice getCartPrice() {
+        int totalPrice = 0;
+        int discount = 0;
+
+        for (CartItem cartItem : cartItems) {
+            totalPrice += cartItem.getProduct().getPrice() * cartItem.getQuantity();
+            discount += cartItem.getProduct().getDiscount().stream().mapToInt(Discount::getAmount).sum();
+        }
+
+        return CartPrice.builder()
+                .grandTotal(totalPrice)
+                .discount(discount)
+                .build();
+    }
 }

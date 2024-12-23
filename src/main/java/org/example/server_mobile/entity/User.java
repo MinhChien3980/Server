@@ -49,4 +49,5 @@ public class User {
     Date createdAt;
     @UpdateTimestamp
     Date updatedAt;
+    String currentCart;
 }

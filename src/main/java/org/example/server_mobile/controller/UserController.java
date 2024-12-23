@@ -41,21 +41,21 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    ApiResponse<UserResponse> getUserById(@PathVariable String id) {
+    ApiResponse<UserResponse> getUserById(@PathVariable Long id) {
         return ApiResponse.<UserResponse>builder()
                 .data(userService.getUserById(id))
                 .build();
     }
 
     @PutMapping("/{id}")
-    ApiResponse<UserResponse> updateUser(@PathVariable String id, @RequestBody UserCreationRequest user) {
+    ApiResponse<UserResponse> updateUser(@PathVariable Long id, @RequestBody UserCreationRequest user) {
         return ApiResponse.<UserResponse>builder()
                 .data(userService.updateUser(id, user))
                 .build();
     }
 
     @DeleteMapping("/{id}")
-    ApiResponse<String> deleteUser(@PathVariable String id) {
+    ApiResponse<String> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return ApiResponse.<String>builder()
                 .data("User deleted successfully")
