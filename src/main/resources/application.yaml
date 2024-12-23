@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    url: "jdbc:mysql://mysql:3306/server_mobile"
+    username: "root"
+    password: "root"
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  secret: "${JWT_SECRET}"
+  valid-duration: 300 # in second
+  refreshable-duration: 900 # in seconds
+
+logging:
+  level:
+    root: INFO
+    org.example.server_mobile.controller: DEBUG

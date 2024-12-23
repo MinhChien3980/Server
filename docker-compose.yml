@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: springboot_mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: server_mobile
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - springboot_network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
+      interval: 10s
+      retries: 3
+      start_period: 40s
+      timeout: 5s
+  app:
+    build:
+      context: .
+    container_name: mobile_app
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/server_mobile
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      JWT_SECRET: sSkEW/7r25YJQCRBw9LEsCg4/yWv3FDKNCMptG5tUnYq7MdkNz+9saUMmCSENl5Y
+    depends_on:
+      - mysql
+    networks:
+      - springboot_network
+
+networks:
+  springboot_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
