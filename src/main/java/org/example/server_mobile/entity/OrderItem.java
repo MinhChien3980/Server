@@ -25,8 +25,4 @@ public class OrderItem {
     @JoinColumn(name = "product_id")
     Product product;
 
-    @ManyToOne
-    @JoinColumn(name = "product_variant_id")
-    ProductVariant productVariant;
-
 }

@@ -30,6 +30,5 @@ public class ProductRequest {
     Size size;
     Gender gender;
     AgeGroup ageGroup;
-    List<ProductVariantRequest> productVariants;
     List<ProductMedia> productMedia;
 }

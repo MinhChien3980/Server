@@ -30,7 +30,6 @@ public class ProductResponse {
     Size size;
     Gender gender;
     AgeGroup ageGroup;
-    List<ProductVariantResponse> productVariants;
     List<ProductMediaResponse> productMedia;
     Set<DiscountResponse> discount;
     String created_at;

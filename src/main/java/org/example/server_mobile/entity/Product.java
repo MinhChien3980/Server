@@ -38,8 +38,6 @@ public class Product {
     @JoinColumn(name = "age_group_id")
     AgeGroup ageGroup;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<ProductVariant> productVariants;
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     List<ProductMedia> productMedia;
     @ManyToMany
     Set<Discount> discount;

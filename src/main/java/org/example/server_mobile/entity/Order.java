@@ -23,9 +23,6 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "user_id")
     User user;
-    @ManyToOne
-    @JoinColumn(name = "discount_id")
-    Discount discount;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     List<OrderItem> orderItems;
 
